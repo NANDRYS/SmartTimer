@@ -1,0 +1,8 @@
+.status__bar{
+     display: inline-block;
+     padding: 10px;
+      border: 1px solid violet;
+}
+.header{
+      color: antiquewhite;
+}

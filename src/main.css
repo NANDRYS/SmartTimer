@@ -45,6 +45,16 @@ button::-moz-focus-inner {
      width: inherit;
      transform: translate(-50%, -50%);
 }
+
+.center__block {
+     position: absolute;
+     width: 80%;
+     top: 23%;
+     left: 50%;
+     transform: translateX(-50%);
+     z-index: 2;
+}
+
 /* 
 .centralitys > div {
       transform: scale(2);
