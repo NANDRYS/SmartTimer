@@ -1,8 +1,55 @@
-.status__bar{
-     display: inline-block;
-     padding: 10px;
+.status__bar {
+      display: inline-block;
+      text-align: center;
+      align-items: center;
+      padding: 10px;
       border: 1px solid violet;
+      border-radius: 20px;
+      position: relative;
+      background-color: rgba(187, 189, 189, 0.137);
+      left: 50%;
+      transform: translateX(-50%);
 }
-.header{
+
+.timer {
+      display: inline-block;
+      margin: 0 auto 1.2rem;
+}
+
+.timer:hover {
+      cursor: default;
+
+}
+
+.header {
+      margin-bottom: 1.2rem;
       color: antiquewhite;
+      background-color: rgba(127, 255, 212, 0.651);
+      border-radius: 20px;
+      padding: 10px;
+}
+
+.header:hover {
+      cursor: default;
+}
+
+
+.controllers span {
+      font-size: 40px;
+      color: rgba(199, 199, 199, 0.651);
+}
+
+.red, .yellow, .green{
+      transition: .3s;
+}
+.red:hover {
+      color: red;
+}
+
+.green:hover {
+      color: green;
+}
+
+.yellow:hover {
+      color: rgb(243, 243, 29);
 }

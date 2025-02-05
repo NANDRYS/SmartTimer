@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.12.3",
+    "material-icons": "^1.13.13",
     "react": "^18.3.1",
     "react-countdown-circle-timer": "^3.2.1",
     "react-dom": "^18.3.1"
