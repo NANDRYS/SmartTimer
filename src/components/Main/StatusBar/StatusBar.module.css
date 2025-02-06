@@ -5,10 +5,9 @@
       padding: 10px;
       border: 1px solid violet;
       border-radius: 20px;
-      position: relative;
       background-color: rgba(187, 189, 189, 0.137);
-      left: 50%;
-      transform: translateX(-50%);
+      grid-area: ststusBar;
+      color: white;
 }
 
 .timer {
@@ -39,9 +38,12 @@
       color: rgba(199, 199, 199, 0.651);
 }
 
-.red, .yellow, .green{
+.red,
+.yellow,
+.green {
       transition: .3s;
 }
+
 .red:hover {
       color: red;
 }

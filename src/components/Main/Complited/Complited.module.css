@@ -1,0 +1,35 @@
+.completed {
+     display: inline-block;
+     width: 245px;
+     border: 1px solid white;
+     padding: 10px;
+     background-color: rgba(95, 95, 95, 0.479);
+     border-radius: 15px;
+     max-height: 335px;
+     grid-area: complite;
+     overflow: auto;
+     scrollbar-width: thin;
+     scrollbar-color: #b6b6b6 transparent;
+}
+
+
+
+.list {
+     padding: 0;
+     margin: 0;
+     color: white;
+     padding-left: 2.8rem;
+     font-size: 1.4rem;
+}
+
+.list a {
+     color: azure;
+     text-decoration: none;
+}
+
+.header {
+     color: green !important;
+     font-size: 2.4rem;
+     border-bottom: 1px solid white;
+     text-align: center;
+}

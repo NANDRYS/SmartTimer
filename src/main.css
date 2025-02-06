@@ -7,7 +7,6 @@
      font-family: "IBM Plex Sans", serif;
      font-weight: 500;
      font-style: normal;
-     color: rgb(246, 255, 127);
 
 }
 
@@ -30,6 +29,9 @@ body::after {
      background-color: blueviolet;
      z-index: 1;
 }
+
+
+
 
 button::-moz-focus-inner {
      padding: 0;
@@ -54,4 +56,3 @@ button::-moz-focus-inner {
      transform: translateX(-50%);
      z-index: 2;
 }
-

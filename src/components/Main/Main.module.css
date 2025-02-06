@@ -1,0 +1,32 @@
+.main__content {
+     display: grid;
+     gap: 20px;
+     justify-items: center;
+     grid-template-columns: repeat(3, 1fr);
+     grid-template-areas: "complite ststusBar failed";
+}
+
+
+
+@media (max-width: 960px) {
+     .main__content {
+          display: grid;
+          justify-items: center;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-areas:
+               "ststusBar ststusBar ststusBar ststusBar"
+               "complite complite failed failed";
+     }
+}
+
+@media (max-width: 768px) {
+     .main__content {
+          display: grid;
+          justify-items: center;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-areas:
+               "ststusBar ststusBar ststusBar ststusBar"
+               "failed failed failed failed"
+               "complite complite complite complite";
+     }
+}
