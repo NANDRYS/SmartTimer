@@ -2,10 +2,17 @@
      display: grid;
      gap: 20px;
      justify-items: center;
-     grid-template-columns: repeat(3, 1fr);
-     grid-template-areas: "complite ststusBar failed";
+     grid-template-columns: repeat(2, 1fr);
+     grid-template-areas: "complite  failed";
 }
 
+.tasks_list {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     gap: 20px;
+     margin-bottom: 20px;
+}
 
 
 @media (max-width: 960px) {
@@ -14,18 +21,25 @@
           justify-items: center;
           grid-template-columns: repeat(4, 1fr);
           grid-template-areas:
-               "ststusBar ststusBar ststusBar ststusBar"
+
                "complite complite failed failed";
      }
 }
 
 @media (max-width: 768px) {
+     .tasks_list {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          gap: 20px;
+          margin-bottom: 20px;
+     }
+
      .main__content {
           display: grid;
           justify-items: center;
           grid-template-columns: repeat(4, 1fr);
           grid-template-areas:
-               "ststusBar ststusBar ststusBar ststusBar"
                "failed failed failed failed"
                "complite complite complite complite";
      }

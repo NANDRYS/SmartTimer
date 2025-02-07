@@ -1,17 +1,15 @@
 import React from "react";
-import style from "./Complited.module.css";
+import style from "../MainStyle/boxForList.module.css";
+import compliteStyle from "../MainStyle/Complited.module.css";
 
 export const Complited = () => {
   return (
-    <div className={style["completed"]}>
-      <h2 className={style['header']}>Complited</h2>
-      <ol className={style['list']}>
-       <li><a href="">Читать asdas asdas asdas asdas asdas </a></li>
-       <li><a href="">Читать asdas asdas asdas asdas asdas </a></li>
-       <li><a href="">Читать asdas asdas asdas asdas asdas </a></li>
-       <li><a href="">Читать asdas asdas asdas asdas asdas </a></li>
-       <li><a href="">Читать asdas asdas asdas asdas asdas </a></li>
-       <li><a href="">Читать asdas asdas asdas asdas asdas </a></li>
+    <div className={[style["box"], compliteStyle["completed"]].join(" ")}>
+      <h2 className={[style["header"], compliteStyle['header']].join(" ")}>Complited</h2>
+      <ol className={style["list"]}>
+        <li>
+          <a href="">Lorem ipsum dolor sit amet consectetur. </a>
+        </li>
       </ol>
     </div>
   );

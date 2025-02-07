@@ -2,17 +2,19 @@
       display: inline-block;
       text-align: center;
       align-items: center;
+      width: 245px;
       padding: 10px;
       border: 1px solid violet;
       border-radius: 20px;
       background-color: rgba(187, 189, 189, 0.137);
       grid-area: ststusBar;
       color: white;
+      position: relative;
 }
 
 .timer {
       display: inline-block;
-      margin: 0 auto 1.2rem;
+      margin: 1.2rem auto 1.2rem;
 }
 
 .timer:hover {
@@ -21,11 +23,11 @@
 }
 
 .header {
-      margin-bottom: 1.2rem;
       color: antiquewhite;
       background-color: rgba(127, 255, 212, 0.651);
       border-radius: 20px;
       padding: 10px;
+      cursor: pointer !important;
 }
 
 .header:hover {
@@ -36,6 +38,11 @@
 .controllers span {
       font-size: 40px;
       color: rgba(199, 199, 199, 0.651);
+}
+
+.hide_content {
+      display: none;
+      height: auto;
 }
 
 .red,
