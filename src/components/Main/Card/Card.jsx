@@ -3,9 +3,9 @@ import style from "../../../assets/css/MainStyle/Card.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 export const Card = () => {
-  const [play, setPlay] = useState(true);
+  const [pauseOrPlay, setpauseOrPlay] = useState(true);
   const [hide, setHide] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const hideContent = (e) => {
     setHide((state) => (state = !state));
@@ -13,7 +13,7 @@ export const Card = () => {
 
   const togglePlay = (e) => {
     e.preventDefault();
-    setPlay((state) => {
+    setpauseOrPlay((state) => {
       return (state = !state);
     });
     setIsPlaying((state) => {
@@ -29,14 +29,14 @@ export const Card = () => {
           hideContent();
         }}
       >
-        Task name!
+        asdaf
       </h2>
       <div className={hide ? style["hide_content"] : ""}>
         <div className={style["timer"]}>
           {" "}
           <CountdownCircleTimer
             isPlaying={isPlaying}
-            duration={10}
+            duration={20}
             colors={["#004777"]}
             // colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
             // colorsTime={[7, 5, 2, 0]}
@@ -56,7 +56,7 @@ export const Card = () => {
             <span className={`material-icons ${style["green"]}`}>done_all</span>
           </a>
           <a href="#" onClick={(e) => togglePlay(e)}>
-            {play ? (
+            {pauseOrPlay ? (
               <span className={`material-icons ${style["yellow"]}`}>pause</span>
             ) : (
               <span className={`material-icons ${style["yellow"]}`}>
