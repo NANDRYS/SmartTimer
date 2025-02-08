@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import style from "../MainStyle/Card.module.css";
+import style from "../../../assets/css/MainStyle/Card.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 export const Card = () => {
   const [play, setPlay] = useState(true);
   const [hide, setHide] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true)
 
   const hideContent = (e) => {
     setHide((state) => (state = !state));
@@ -13,6 +14,9 @@ export const Card = () => {
   const togglePlay = (e) => {
     e.preventDefault();
     setPlay((state) => {
+      return (state = !state);
+    });
+    setIsPlaying((state) => {
       return (state = !state);
     });
   };
@@ -31,7 +35,7 @@ export const Card = () => {
         <div className={style["timer"]}>
           {" "}
           <CountdownCircleTimer
-            isPlaying
+            isPlaying={isPlaying}
             duration={10}
             colors={["#004777"]}
             // colors={["#004777", "#F7B801", "#A30000", "#A30000"]}

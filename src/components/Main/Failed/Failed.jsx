@@ -1,6 +1,6 @@
 import React from "react";
-import style from "../MainStyle/boxForList.module.css";
-import failedStyle from "../MainStyle/Failed.module.css";
+import style from "../../../assets/css/MainStyle/boxForList.module.css";
+import failedStyle from "../../../assets/css/MainStyle/Failed.module.css";
 
 export const Failed = () => {
   return (

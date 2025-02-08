@@ -1,5 +1,5 @@
 import React from "react";
-import style from ".//MainStyle/Main.module.css";
+import style from "../../assets/css/MainStyle/Main.module.css";
 import { Input } from "./Input/Input";
 import { Button } from "./Button/Button";
 import { Card } from "./Card/Card";

@@ -10,6 +10,7 @@
       grid-area: ststusBar;
       color: white;
       position: relative;
+      align-self: flex-start
 }
 
 .timer {

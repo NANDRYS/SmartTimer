@@ -1,6 +1,6 @@
 import React from "react";
-import style from "../MainStyle/boxForList.module.css";
-import compliteStyle from "../MainStyle/Complited.module.css";
+import style from "../../../assets/css/MainStyle/boxForList.module.css";
+import compliteStyle from "../../../assets/css/MainStyle/Complited.module.css";
 
 export const Complited = () => {
   return (
