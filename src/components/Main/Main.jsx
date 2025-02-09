@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../../assets/css/MainStyle/Main.module.css";
 import { Input } from "./Input/Input";
 import { Button } from "./Button/Button";
@@ -11,18 +11,47 @@ const statusList = {
   complited: "complited",
   failed: "failed",
 };
-const LIST = [
-  {
-    id: 1,
-    TaskName: "прочитать книгу",
-    time: 180,
-    isPlaying: true,
-    status: statusList.active,
-  },
-];
+// const LIST = [
+//   {
+//     id: 1,
+//     TaskName: "прочитать книгу",
+//     time: 180,
+//     isPlaying: true,
+//     status: "active",
+//   },
+//   {
+//     id: 2,
+//     TaskName: "прочитать выаы",
+//     time: 180,
+//     isPlaying: false,
+//     status: "failed",
+//   },
+// ];
 
 export const Main = () => {
-  const [listItems, setListItems] = useState(LIST);
+  const [listItems, setListItems] = useState([]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("data"));
+    if (data) {
+      setListItems(data.map((item) => ({ ...item })));
+    }
+  }, []);
+  useEffect(() => {
+    if (listItems.length) {
+      localStorage.setItem("data", JSON.stringify(listItems));
+    }
+  }, [listItems]);
+
+  // const changeStatus = (id, newStatus) => {
+  //   listItems.map((el) => {
+  //     if (el.id === id) {
+  //       setListItems(
+  //         (oldItemsList) => (oldItemsList[el.id].status = newStatus)
+  //       );
+  //     }
+  //   });
+  // };
 
   const getItemFromForm = (e) => {
     e.preventDefault();
@@ -47,7 +76,10 @@ export const Main = () => {
           time: formProps.TaskTime,
           isPlaying: true,
           status: statusList.active,
-          id: Math.max(...oldItems.map((i) => (i = i.id))) + 1,
+          id:
+            oldItems.length > 0
+              ? Math.max(...oldItems.map((i) => (i = i.id))) + 1
+              : 1,
         },
       ]);
     }
@@ -67,8 +99,8 @@ export const Main = () => {
           ))}
       </div>
       <div className={style["main__content"]}>
-        <Complited />
-        <Failed />
+        <Complited listItems={listItems} />
+        <Failed listItems={listItems} />
       </div>
     </main>
   );

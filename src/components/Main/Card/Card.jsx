@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "../../../assets/css/MainStyle/Card.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-export const Card = () => {
+export const Card = ({  item }) => {
   const [pauseOrPlay, setpauseOrPlay] = useState(true);
   const [hide, setHide] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -29,11 +29,10 @@ export const Card = () => {
           hideContent();
         }}
       >
-        asdaf
+        {item.TaskName}
       </h2>
       <div className={hide ? style["hide_content"] : ""}>
         <div className={style["timer"]}>
-          {" "}
           <CountdownCircleTimer
             isPlaying={isPlaying}
             duration={20}
@@ -52,7 +51,7 @@ export const Card = () => {
         </div>
 
         <div className={style["controllers"]}>
-          <a href="#">
+          <a href="#" >
             <span className={`material-icons ${style["green"]}`}>done_all</span>
           </a>
           <a href="#" onClick={(e) => togglePlay(e)}>
