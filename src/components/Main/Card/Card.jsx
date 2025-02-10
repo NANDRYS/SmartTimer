@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "../../../assets/css/MainStyle/Card.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-export const Card = ({  item }) => {
+export const Card = ({ item, changeStatus }) => {
   const [pauseOrPlay, setpauseOrPlay] = useState(true);
   const [hide, setHide] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -35,7 +35,7 @@ export const Card = ({  item }) => {
         <div className={style["timer"]}>
           <CountdownCircleTimer
             isPlaying={isPlaying}
-            duration={20}
+            duration={item.time}
             colors={["#004777"]}
             // colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
             // colorsTime={[7, 5, 2, 0]}
@@ -44,15 +44,25 @@ export const Card = ({  item }) => {
               const hours = Math.floor(remainingTime / 3600);
               const minutes = Math.floor((remainingTime % 3600) / 60);
               const seconds = remainingTime % 60;
-
+              console.log(item.time);
+              if (seconds === 0) {
+                changeStatus(item.id, "failed");
+              }
               return `${hours}:${minutes}:${seconds}`;
             }}
           </CountdownCircleTimer>
         </div>
 
         <div className={style["controllers"]}>
-          <a href="#" >
-            <span className={`material-icons ${style["green"]}`}>done_all</span>
+          <a href="#">
+            <span
+              className={`material-icons ${style["green"]}`}
+              onClick={() => {
+                changeStatus(item.id, "complited");
+              }}
+            >
+              done_all
+            </span>
           </a>
           <a href="#" onClick={(e) => togglePlay(e)}>
             {pauseOrPlay ? (
@@ -64,7 +74,14 @@ export const Card = ({  item }) => {
             )}
           </a>
           <a href="#">
-            <span className={`material-icons ${style["red"]}`}>close</span>
+            <span
+              className={`material-icons ${style["red"]}`}
+              onClick={() => {
+                changeStatus(item.id, "failed");
+              }}
+            >
+              close
+            </span>
           </a>
         </div>
       </div>

@@ -44,14 +44,25 @@ export const Main = () => {
   }, [listItems]);
 
   // const changeStatus = (id, newStatus) => {
-  //   listItems.map((el) => {
+  //   const  newList = listItems.map((el) => {
   //     if (el.id === id) {
-  //       setListItems(
-  //         (oldItemsList) => (oldItemsList[el.id].status = newStatus)
+  //      ...el,status = newStatus)
   //       );
   //     }
   //   });
   // };
+    const changeStatus = (id, newStatus) => {
+    const updatedList = listItems.map(item => {
+      if (item.id === id) {
+        return {
+          ...item,
+          status: newStatus,
+        };
+      }
+      return item;
+    });
+    setListItems(updatedList);
+  };
 
   const getItemFromForm = (e) => {
     e.preventDefault();
@@ -95,7 +106,7 @@ export const Main = () => {
         {listItems
           .filter((e) => e.status === "active")
           .map((item) => (
-            <Card item={item} key={item.id} />
+            <Card item={item} key={item.id} changeStatus={changeStatus} />
           ))}
       </div>
       <div className={style["main__content"]}>
