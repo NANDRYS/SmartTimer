@@ -6,30 +6,10 @@ import { Card } from "./Card/Card";
 import { Complited } from "./Complited/Complited";
 import { Failed } from "./Failed/Failed";
 
-const statusList = {
-  active: "active",
-  complited: "complited",
-  failed: "failed",
-};
-// const LIST = [
-//   {
-//     id: 1,
-//     TaskName: "прочитать книгу",
-//     time: 180,
-//     isPlaying: true,
-//     status: "active",
-//   },
-//   {
-//     id: 2,
-//     TaskName: "прочитать выаы",
-//     time: 180,
-//     isPlaying: false,
-//     status: "failed",
-//   },
-// ];
-
 export const Main = () => {
   const [listItems, setListItems] = useState([]);
+  const [TaskName, setTaskName] = useState("");
+  const [TaskTime, setTaskTime] = useState("");
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("data"));
@@ -43,16 +23,8 @@ export const Main = () => {
     }
   }, [listItems]);
 
-  // const changeStatus = (id, newStatus) => {
-  //   const  newList = listItems.map((el) => {
-  //     if (el.id === id) {
-  //      ...el,status = newStatus)
-  //       );
-  //     }
-  //   });
-  // };
-    const changeStatus = (id, newStatus) => {
-    const updatedList = listItems.map(item => {
+  const changeStatus = (id, newStatus) => {
+    const updatedList = listItems.map((item) => {
       if (item.id === id) {
         return {
           ...item,
@@ -86,20 +58,33 @@ export const Main = () => {
           TaskName: formProps.TaskName,
           time: formProps.TaskTime,
           isPlaying: true,
-          status: statusList.active,
+          status: "active",
           id:
             oldItems.length > 0
               ? Math.max(...oldItems.map((i) => (i = i.id))) + 1
               : 1,
         },
       ]);
+      setTaskName("");
+      setTaskTime("");
     }
   };
+
   return (
     <main>
       <form onSubmit={getItemFromForm}>
-        <Input name={"TaskName"} placeholder={"Enter the task"} />
-        <Input name={"TaskTime"} placeholder={"Enter the time (in minutes)"} />
+        <Input
+          name={"TaskName"}
+          value={TaskName}
+          setValue={setTaskName}
+          placeholder={"Enter the task"}
+        />
+        <Input
+          name={"TaskTime"}
+          value={TaskTime}
+          setValue={setTaskTime}
+          placeholder={"Enter the time (in seconds)"}
+        />
         <Button />
       </form>
       <div className={style["tasks_list"]}>
