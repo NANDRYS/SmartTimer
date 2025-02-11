@@ -21,7 +21,27 @@
      font-size: 1.4rem;
 }
 
+.deleteButt:hover {
+     color: red;
+}
 
+.red {
+     transition: .3s;
+     border-radius: 50%;
+}
+
+.red:hover {
+     background: #b6b6b6;
+     color: red;
+}
+
+.deleteButton {
+     position: absolute;
+     z-index: 3;
+     right: 5px;
+     top: 7px;
+     transition: all ease 0.3s;
+}
 
 .list li {
      margin-top: 10px;

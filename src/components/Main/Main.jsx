@@ -24,16 +24,21 @@ export const Main = () => {
   }, [listItems]);
 
   const changeStatus = (id, newStatus) => {
-    const updatedList = listItems.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          status: newStatus,
-        };
-      }
-      return item;
-    });
-    setListItems(updatedList);
+    if (newStatus === "delete") {
+      const updatedList = listItems.filter((el) => el.id != id);
+      setListItems(updatedList);
+    } else {
+      const updatedList = listItems.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            status: newStatus,
+          };
+        }
+        return item;
+      });
+      setListItems(updatedList);
+    }
   };
 
   const getItemFromForm = (e) => {
@@ -49,6 +54,7 @@ export const Main = () => {
     }
 
     if (formProps.TaskTime === "") return alert("field  TaskTime is empty");
+    if (formProps.TaskTime <= 0) return alert("Нельзя вводить числа меньше 0");
     if (formProps.TaskName === "") return alert("field TaskName  is empty");
 
     if (!isNaN(formProps.TaskTime) && isNaN(formProps.TaskName)) {
@@ -95,8 +101,8 @@ export const Main = () => {
           ))}
       </div>
       <div className={style["main__content"]}>
-        <Complited listItems={listItems} />
-        <Failed listItems={listItems} />
+        <Complited listItems={listItems} changeStatus={changeStatus} />
+        <Failed listItems={listItems} changeStatus={changeStatus} />
       </div>
     </main>
   );

@@ -45,7 +45,7 @@ export const Card = ({ item, changeStatus }) => {
               const minutes = Math.floor((remainingTime % 3600) / 60);
               const seconds = remainingTime % 60;
               console.log(item.time);
-              if (seconds === 0) {
+              if (hours <= 0 && minutes <= 0 && seconds <= 0) {
                 changeStatus(item.id, "failed");
               }
               return `${hours}:${minutes}:${seconds}`;
@@ -77,7 +77,7 @@ export const Card = ({ item, changeStatus }) => {
             <span
               className={`material-icons ${style["red"]}`}
               onClick={() => {
-                changeStatus(item.id, "failed");
+                changeStatus(item.id, "delete");
               }}
             >
               close
